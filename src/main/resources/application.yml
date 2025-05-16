@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: config-server
+  profiles: git
+  cloud:
+    config:
+      server:
+      git:
+      uri: https://github.com/JinYang0318/orderflow-config-data.git
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
