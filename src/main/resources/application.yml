@@ -1,17 +1,22 @@
 spring:
   application:
     name: config-server
-  profiles: git
+
+  profiles:
+    active: native
+
   cloud:
     config:
       server:
-      git:
-      uri: https://github.com/JinYang0318/orderflow-config-data.git
-
-server:
-  port: 8888
+        native:
+          search-locations: file:../orderflow-config-data
 
 eureka:
   client:
+    register-with-eureka: true
+    fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8888
